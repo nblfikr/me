@@ -1,5 +1,5 @@
 <script lang="ts">
-    import mp3 from "$lib/senyumanmu.mp4";
+    // import mp3 from "$lib/senyumanmu.mp4";
     import { onMount } from "svelte";
 
     let audio: HTMLAudioElement;
