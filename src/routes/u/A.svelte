@@ -1,22 +1,10 @@
 <script lang="ts">
     // import mp3 from "$lib/senyumanmu.mp4";
-    import { onMount } from "svelte";
 
-    let audio: HTMLAudioElement;
-    let container: any;
-    let y: any;
+    // let audio: HTMLAudioElement;
+    // let y: any;
 
-    onMount(() => {
-        setTimeout(() => {
-            audio.play();
-        }, 500);
-
-        container.addEventListener('scroll', function() {
-            alert()
-        })
-    });
-
-    export let guestname;
+    export let token;
 </script>
 
 <!-- <svelte:window bind:scrollY={y} />
@@ -74,6 +62,6 @@
     <div class="hero-date" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">Sabtu, 06 Juli 2024</div>
     <div>
         <div class="hero-guest-subtitle" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">Kepada Yth. Bapak/Ibu/Saudara/i</div>
-        <div class="hero-guest-text" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">{atob(guestname)}</div>
+        <div class="hero-guest-text" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">{atob(token)}</div>
     </div>
 </section>

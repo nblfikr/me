@@ -9,10 +9,12 @@
     import 'aos/dist/aos.css';
     import { onMount } from 'svelte';
 
-    // import { sound, useSound } from "svelte-sound";
-    // import mp3 from "$lib/senyumanmu.mp4";
+    import { page } from '$app/stores';
+    const url = $page.url;
+    let token = url.searchParams.get('token')
+    // console.log(url.searchParams.get('token'))
 
-    // const s = useSound(mp3, ['load'])
+    // import mp3 from "$lib/senyumanmu.mp4";
 
     onMount(() => {
         AOS.init({
@@ -20,7 +22,7 @@
         });
     });
 
-    export let data;
+    // export let data;
 </script>
 
 <svelte:head>
@@ -41,7 +43,7 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"> -->
 </svelte:head>
 
-<A guestname="{data.slug}" />
+<A token="{token}" />
 <B />
 <C />
 <D />
