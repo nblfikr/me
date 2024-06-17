@@ -9,6 +9,6 @@
         line-height: .8rem;
     }
 </style>
-<section class="notice">
+<section data-aos="zoom-in" data-aos-delay="1500" class="notice">
     Dengan tidak mengurangi rasa hormat, mohon maaf kami tidak menerima tamu di rumah, dan mohon hadir hanya pada waktu yang telah ditentukan.
 </section>

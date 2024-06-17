@@ -46,18 +46,18 @@
 <section class="c bg-dark">
     <!-- <div class="">yang InsyaAllah akan diselenggarakan pada :</div> -->
     <div class="card">
-        <div class="card-title">Resepsi Pernikahan</div>
-        <div>Sabtu, 06 Juli 2024</div>
-        <div>10.00 - 12.00</div>
-        <div>Jl Kyai Irsyad, Permitan, Bondowoso, Mertoyudan, Magelang</div>
-        <div class="box-location"><a class="view-location" href="https://maps.app.goo.gl/riWTwnZK3yCu4t9p7" target="_blank">Lihat Lokasi</a></div>
+        <div data-aos="fade-down" data-aos-delay="500" class="card-title">Resepsi Pernikahan</div>
+        <div data-aos="fade-down" data-aos-delay="350">Sabtu, 06 Juli 2024</div>
+        <div data-aos="fade-down" data-aos-delay="150">10.00 - 12.00</div>
+        <div data-aos="fade-down">Jl Kyai Irsyad, Permitan, Bondowoso, Mertoyudan, Magelang</div>
+        <div data-aos="fade-down" data-aos-delay="700" class="box-location"><a class="view-location" href="https://maps.app.goo.gl/riWTwnZK3yCu4t9p7" target="_blank">Lihat Lokasi</a></div>
     </div>
 
     <div class="card">
-        <div class="card-title">Akad Nikah</div>
-        <div>Sabtu, 29 Juni 2024</div>
-        <div>09.00 - Selesai</div>
-        <div>Cokroyasan, Kec. Ngombol, Kabupaten Purworejo</div>
+        <div data-aos="fade-down" data-aos-delay="500" class="card-title">Akad Nikah</div>
+        <div data-aos="fade-down" data-aos-delay="350">Sabtu, 29 Juni 2024</div>
+        <div data-aos="fade-down" data-aos-delay="150">09.00 - Selesai</div>
+        <div data-aos="fade-down">Cokroyasan, Kec. Ngombol, Kabupaten Purworejo</div>
     </div>
     
 </section>
