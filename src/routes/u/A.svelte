@@ -4,7 +4,8 @@
     // let audio: HTMLAudioElement;
     // let y: any;
 
-    export let token;
+    export let guestname;
+    export let address;
 </script>
 
 <!-- <svelte:window bind:scrollY={y} />
@@ -54,6 +55,10 @@
         text-decoration: underline;
         text-transform: uppercase;
     }
+    .hero-guest-address {
+        font-size: 1rem;
+        margin: 1rem 0 0;
+    }
 </style>
 
 <section class="hero">
@@ -62,6 +67,7 @@
     <div class="hero-date" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">Sabtu, 06 Juli 2024</div>
     <div>
         <div class="hero-guest-subtitle" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">Kepada Yth. Bapak/Ibu/Saudara/i</div>
-        <div class="hero-guest-text" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">{atob(token)}</div>
+        <div class="hero-guest-text" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">{guestname}</div>
+        <div class="hero-guest-address" data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">di {address}</div>
     </div>
 </section>

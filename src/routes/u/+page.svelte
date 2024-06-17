@@ -8,27 +8,31 @@
     import AOS from 'aos';
     import 'aos/dist/aos.css';
     import { onMount } from 'svelte';
-
     import { page } from '$app/stores';
-    const url = $page.url;
-    let token = url.searchParams.get('token')
-    // console.log(url.searchParams.get('token'))
-
     // import mp3 from "$lib/senyumanmu.mp4";
+
+    let guestname = ""
+    let address = ""
+
+    function parsepayload(payload: string) {
+        const guest = atob(payload.substring(5, payload.length - 6)).split('-')
+        guestname = guest[0]
+        address = guest[1]
+    }
 
     onMount(() => {
         AOS.init({
             duration: 500
         });
-    });
 
-    // export let data;
+        parsepayload($page.url.searchParams.get('id'))
+    });
 </script>
 
 <svelte:head>
-    <title>F&M</title>
+    <title>Undangan Pernikahan Fikri & Melinia</title>
     <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="Svelte demo app" />
+    <meta name="description" content="Sabtu, 06 Juli 2024" />
     <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
@@ -43,7 +47,7 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"> -->
 </svelte:head>
 
-<A token="{token}" />
+<A guestname="{guestname}" address="{address}" />
 <B />
 <C />
 <D />
