@@ -49,7 +49,7 @@
         <div data-aos="fade-down" data-aos-delay="500" class="card-title">Resepsi Pernikahan</div>
         <div data-aos="fade-down" data-aos-delay="350">Sabtu, 06 Juli 2024</div>
         <div data-aos="fade-down" data-aos-delay="150">10.00 - 12.00</div>
-        <div data-aos="fade-down">Jl Kyai Irsyad, Permitan, Bondowoso, Mertoyudan, Magelang</div>
+        <div data-aos="fade-down"><b>Shakila Resto & Cafe</b><br>Jl. Kyai Irsyad, Permitan, Bondowoso, Mertoyudan, Magelang</div>
         <div data-aos="fade-down" data-aos-delay="700" class="box-location"><a class="view-location" href="https://maps.app.goo.gl/riWTwnZK3yCu4t9p7" target="_blank">Lihat Lokasi</a></div>
     </div>
 
