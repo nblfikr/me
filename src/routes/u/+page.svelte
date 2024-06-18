@@ -32,7 +32,18 @@
 <svelte:head>
     <title>Undangan Pernikahan Fikri & Melinia</title>
     <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="title" content="Undangan Pernikahan Fikri & Melinia" />
     <meta name="description" content="Sabtu, 06 Juli 2024" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://habissore.com/u" />
+    <meta property="og:title" content="Undangan Pernikahan Fikri & Melinia" />
+    <meta property="og:description" content="Sabtu, 06 Juli 2024" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1485700281629-290c5a704409?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://habissore.com/u" />
+    <meta property="twitter:title" content="Undangan Pernikahan Fikri & Melinia" />
+    <meta property="twitter:description" content="Sabtu, 06 Juli 2024" />
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1485700281629-290c5a704409?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
     <!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
