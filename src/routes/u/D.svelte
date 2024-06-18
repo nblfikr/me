@@ -12,7 +12,7 @@
     }
 </style>
 <section class="d bg-light time">
-    <div data-aos="fade-down-right" data-aos-delay="150" class="text">Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.<br>Atas kehadiran Bapak/Ibu/Saudara/i kami ucapkan terima kasih.
+    <div data-aos="fade-down-right" data-aos-delay="150" class="text">Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.<br>Atas perhatian Bapak/Ibu/Saudara/i kami ucapkan terima kasih.
         <br><br><span data-aos="fade-down-right" data-aos-delay="550" class="salam">Wassalamu'alaikum Warahmatullahi Wabarakaatuh</span>
         <br><br><span data-aos="fade-down-right" data-aos-delay="1000" class="salam">Zaenal Arifin sekeluarga</span>
     </div>
