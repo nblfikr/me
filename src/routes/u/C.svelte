@@ -56,7 +56,7 @@
     <div class="card">
         <div data-aos="fade-down" data-aos-delay="500" class="card-title">Akad Nikah</div>
         <div data-aos="fade-down" data-aos-delay="350">Sabtu, 29 Juni 2024</div>
-        <div data-aos="fade-down" data-aos-delay="150">09.00 - Selesai</div>
+        <div data-aos="fade-down" data-aos-delay="150">08.00 - Selesai</div>
         <div data-aos="fade-down">Cokroyasan, Kec. Ngombol, Kabupaten Purworejo</div>
     </div>
     
