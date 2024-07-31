@@ -21,13 +21,12 @@ export class TileLine {
         this._points = 0
     }
 
-    public toLeft() {
+    /**
+     * kelompokkan tile nol disebelah kanan
+     */
+    private grouping() {
         let zeros = this._tiles.filter(tile => tile == 0).length
-        const nonzeros = this._tiles.filter(tile => tile != 0).length
 
-        if (nonzeros == 0) return this._tiles
-
-        // geser semua nol ke kanan
         if (zeros > 0) {
             for (let i = 0; i < this._tiles.length - 1; i++) {
                 while (this._tiles[i] == 0 && zeros > 0) {
@@ -40,6 +39,10 @@ export class TileLine {
                 }
             }
         }
+    }
+
+    public toLeft() {
+        this.grouping()
 
         // gabungkan angka yang sama
         for (let i = 0; i < this._tiles.length; i++) {
@@ -52,8 +55,8 @@ export class TileLine {
                 this._tiles[i + 1] = 0
                 // point didapat dari akumulasi angka yang digabungkan
                 this._points += this._tiles[i]
-                // geser tile yang kosong ke sebelah kanan
-                this.toLeft()
+                
+                this.grouping()
             }
         }
 
@@ -164,7 +167,10 @@ export default class Board {
             case SwipeDiretion.unhandled:
                 break;
         }
-        this.randomTile()
+        
+        if (direction != SwipeDiretion.unhandled) {
+            this.randomTile()
+        }
     }
 
     public get points(): number {
