@@ -19,8 +19,26 @@ let board = new Board()
     let end: Pos
 
     const handleTouchstart = ((e: TouchEvent) => {
+        // in mobile prevent swipe to refresh
+        if (e.touches.length > 0) {
+            let touch = e.touches[0];
+            if (touch.clientY <= 10) { // Deteksi touch yang mendekati atas halaman
+                e.preventDefault();
+            }
+        }
+
         const { clientX, clientY } = e.touches[0]
         start = { x: clientX, y: clientY }
+    })
+
+    const handleTouchMove = ((e: TouchEvent) => {
+        // in mobile prevent swipe to refresh
+        if (e.touches.length > 0) {
+            let touch = e.touches[0];
+            if (touch.clientY > 50) { // Jika posisi sentuhan lebih dari 50px dari atas
+                e.preventDefault();
+            }
+        }
     })
 
     const handleTouchend = ((e: TouchEvent) => {
@@ -92,7 +110,7 @@ let board = new Board()
         POINT: {points}<br>
         SHIFTS: {shifts}
     </div>
-    <div class="container" on:touchstart={handleTouchstart} on:touchend={handleTouchend} >
+    <div class="container" on:touchstart={handleTouchstart} on:touchmove={handleTouchMove} on:touchend={handleTouchend} >
         <div class="board-container">
             <div class="board-row"></div>
             <div class="board-row"></div>
@@ -129,6 +147,8 @@ let board = new Board()
 </main>
 
 <style>
+    @import url('https://fonts.cdnfonts.com/css/pwchalk');
+
     main {
         margin: 0 auto;
         display: flex;
@@ -138,10 +158,11 @@ let board = new Board()
         background: rgb(232, 232, 232);
         max-width: 800px;
         height: 100vh;
+        font-family: 'PWChalk', sans-serif;
     }
     .container {
         width: 300px;
-        height: 300px;
+        height: 600px;
         margin: 0 12px;
     }
     .board-container {
@@ -150,7 +171,7 @@ let board = new Board()
         display: grid;
         grid-template-columns: auto auto auto auto;
         width: inherit;
-        height: inherit;
+        height: 300px;
         background: rgb(187, 173, 160);
         border-radius: .5   rem;
         padding: 4px;
@@ -166,7 +187,7 @@ let board = new Board()
         display: grid;
         grid-template-columns: auto auto auto auto;
         width: inherit;
-        height: inherit;
+        height: 300px;
         padding: 4px;
     }
     .tile {
