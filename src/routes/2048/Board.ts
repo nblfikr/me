@@ -1,15 +1,17 @@
+import { deepCopyArray, isEqual } from "./utils"
+
 export enum GameState {
-    play,
-    over,
-    victory
+    play = 'play',
+    over = 'over',
+    victory = 'victory'
 }
 
 export enum SwipeDiretion {
-    unhandled,
-    left,
-    up,
-    right,
-    down
+    unhandled = 'unhandled',
+    left = 'left',
+    up = 'up',
+    right = 'right',
+    down = 'down'
 }
 
 export class TileLine {
@@ -74,9 +76,12 @@ type Pos = {
 }
 
 export default class Board {
+    private _curr_direction: SwipeDiretion
+    private _last_direction: SwipeDiretion
     private _tile: number[][]
     private _points: number
     private _shifts: number
+    private _state: GameState = GameState.play
 
     constructor() {
         this._tile = [
@@ -87,18 +92,18 @@ export default class Board {
         ]
         this._points = 0
         this._shifts = 0
+        this._curr_direction = SwipeDiretion.unhandled
+        this._last_direction = SwipeDiretion.unhandled
         this.randomTile()
     }
 
     private transpose() {
         this._tile = this._tile[0].map((_, i) => this._tile.map(row => row[i]))
-        // console.log('TRANSPOSE: ', this._tile)
         return this
     }
     
     private horizontalMirror() {
         this._tile = this._tile.map((row, i) => row.reverse())
-        // console.log('HMIRROR: ', this._tile)
         return this
     }
 
@@ -109,9 +114,6 @@ export default class Board {
             // akumulasi point
             this._points += line.points
         }
-        // console.log('LEFT: ', this._tile)
-        // increase number of shifts
-        this._shifts++
 
         return this
     }
@@ -122,13 +124,13 @@ export default class Board {
         let emptyTile: Pos[] = []
         for (let i = 0; i < this._tile.length; i++) {
             for (let j = 0; j < this._tile.length; j++) {
-                if (this._tile[i][j] == 0) emptyTile.push({x: i, y: j})
+                if (this._tile[i][j] === 0) emptyTile.push({x: i, y: j})
             }
         }
 
         if (emptyTile.length > 0) {
             let count = 1
-            if (emptyTile.length == 16) {
+            if (emptyTile.length === 16) {
                 count = 2
             }
 
@@ -151,7 +153,14 @@ export default class Board {
     }
 
     public move(direction: SwipeDiretion) {
-        switch (direction) {
+        if (this._state != GameState.play) return
+
+        this._last_direction = this._curr_direction
+        this._curr_direction = direction
+
+        const tileCloned = deepCopyArray(this._tile)
+
+        switch (this._curr_direction) {
             case SwipeDiretion.left:
                 this.toLeft()
                 break;
@@ -164,13 +173,53 @@ export default class Board {
             case SwipeDiretion.down:
                 this.transpose().horizontalMirror().toLeft().horizontalMirror().transpose()
                 break;
-            case SwipeDiretion.unhandled:
-                break;
         }
         
-        if (direction != SwipeDiretion.unhandled) {
+        if (! isEqual(this._tile, tileCloned)) {
+            // increase number of shifts
+            this._shifts++
             this.randomTile()
         }
+
+        this._checkLifecycle()
+    }
+
+    private _checkLifecycle() {
+
+        for (let i=0; i<this._tile.length; i++) {
+            for (let j=0; j<this._tile.length; j++) {
+                
+                // check for victory
+                if (this._tile[i][j] === 2048) {
+                    this._state = GameState.victory
+                }
+
+                // TODO: check for game over
+            }
+        }
+    }
+
+    public get state(): GameState {
+        return this._state
+    }
+
+    public clone(): Board {
+        const newBoard = new Board()
+        newBoard._curr_direction = this._curr_direction
+        newBoard._last_direction = this._last_direction
+        newBoard._tile = this._tile.map(row => [...row]);
+        newBoard._points = this._points
+        newBoard._shifts = this._shifts
+
+        return newBoard
+    }
+
+    public get direction(): String {
+        if (this._curr_direction !== SwipeDiretion.unhandled) {
+            return this._last_direction
+        }
+
+        return this._curr_direction
     }
 
     public get points(): number {

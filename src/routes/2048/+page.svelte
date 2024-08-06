@@ -1,14 +1,14 @@
 <script lang="ts">
-    import D from "../u/D.svelte";
-import Board, { SwipeDiretion, TileLine } from "./Board"
+    import Board, { SwipeDiretion } from "./Board"
     import Game from "./Game"
-let board = new Board()
+    let game = new Game(new Board())
 
     
-    let tiles = board.tile
-    let points = 0
-    let shifts = 0
-    let direction = 0
+    let tiles: number[][] = game.tile
+    let points: number = 0
+    let shifts: number = 0
+    let direction: String
+    let state: String
 
     type Pos = {
         x: number
@@ -70,27 +70,34 @@ let board = new Board()
     const handleEvent = (key: string) => {
         switch (key) {
             case 'ArrowLeft':
-                Game.direction = SwipeDiretion.left;
+                game.move(SwipeDiretion.left);
                 break;
             case 'ArrowUp':
-                Game.direction = SwipeDiretion.up;
+                game.move(SwipeDiretion.up);
                 break;
             case 'ArrowRight':
-                Game.direction = SwipeDiretion.right;
+                game.move(SwipeDiretion.right);
                 break;
             case 'ArrowDown':
-                Game.direction = SwipeDiretion.down;
-                break;
-            default:
-                Game.direction = SwipeDiretion.unhandled;
+                game.move(SwipeDiretion.down);
                 break;
         }
 
-        board.move(Game.direction)
-        direction = Game.direction
-        tiles = board.tile
-        points = board.points
-        shifts = board.shifts
+        render(game)
+
+    }
+
+    const handleUndo = () => {
+        game.undo()
+        render(game)
+    }
+
+    const render = (g: Game) => {
+        direction = g.direction
+        tiles = g.tile
+        points = g.points
+        shifts = g.shifts
+        state = g.state
     }
 </script>
 
@@ -105,10 +112,14 @@ let board = new Board()
 
 <main>
     <div class="title">{direction}</div>
+    <div class="title">{state}</div>
     <div class="title">2048</div>
     <div class="information">
         POINT: {points}<br>
         SHIFTS: {shifts}
+    </div>
+    <div>
+        <button id="undo" on:click={handleUndo} type="button">ULANG</button>
     </div>
     <div class="container" on:touchstart={handleTouchstart} on:touchmove={handleTouchMove} on:touchend={handleTouchend} >
         <div class="board-container">
